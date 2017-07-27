@@ -1,0 +1,25 @@
+import originJSONP from 'jsonp'
+
+export default function jsonp(url, data, option) {
+  // 判断是否有问好, 有的话去了, 没有就添加
+  url += (url.indexOf('?')<0?'?' : '&') + param(data)
+  return new Promise((resolve, reject) => {
+    originJSONP(url, option, (err, data) => {
+      if (!err) {
+        resolve(data)
+      } else {
+        reject(err)
+      }
+    })
+  })
+}
+
+// 处理参数拼接至 url
+function param(data) {
+  let url = ''
+  for(var i in data){
+    let value = data[i] != undefined ? data[i] : ''
+    url += `&${i}=${encodeURIComponent(value)}`
+  }
+  return url ? url.substring(1) : ''
+}

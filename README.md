@@ -1,6 +1,6 @@
-# elem
+# QQ 音乐app
 
-> A Vue.js project
+> 防QQ音乐app
 
 ## Build Setup
 

@@ -6,7 +6,7 @@ import router from './router'
 import 'babel-polyfill'
 import fastClick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
-
+import store from './store'
 Vue.use(VueLazyload, {
   loading: require('./assets/loading.png')
 })
@@ -16,6 +16,7 @@ fastClick.attach(document.body)
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: {
     App

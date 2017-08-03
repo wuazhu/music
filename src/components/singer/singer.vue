@@ -14,6 +14,7 @@ import {
 } from 'api/config'
 import Singer from 'common/singer'
 import ListView from 'base/listview/listview'
+
 import {
   mapMutations
 } from 'vuex'
@@ -25,8 +26,7 @@ export default {
   name: 'Singer',
   data() {
     return {
-      singerList: [],
-      viewAnimate: 'slide-right'
+      singerList: []
     }
   },
   components: {
@@ -47,7 +47,6 @@ export default {
         if (res.code === ERR_OK) {
           this.singerList = this.resizeList(res.data.list)
         }
-        // console.log(this.singerList);
       })
     },
     resizeList(list) {
